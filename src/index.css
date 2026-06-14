@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-accent: #3b82f6;
+  --color-accent-light: #60a5fa;
+}
+
+:root {
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15, 23, 42, 0.55);
+  --text-tertiary: rgba(15, 23, 42, 0.3);
+  --text-inverse: #f8fafc;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --sidebar-bg: #f8fafc;
+  --sidebar-border: rgba(0, 0, 0, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --dropzone-bg: rgba(0, 0, 0, 0.02);
+  --dropzone-border: rgba(0, 0, 0, 0.1);
+  --radial-glow: rgba(59, 130, 246, 0.06);
+  --hover-bg: rgba(0, 0, 0, 0.04);
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --success-border: rgba(16, 185, 129, 0.25);
+  --success-text: #059669;
+  --danger-bg: rgba(239, 68, 68, 0.1);
+  --danger-border: rgba(239, 68, 68, 0.25);
+  --danger-text: #dc2626;
+}
+
+.dark {
+  --bg-primary: #0b0e14;
+  --bg-surface: #11141d;
+  --bg-elevated: #1a1d2a;
+  --text-primary: #e5e7eb;
+  --text-secondary: rgba(255, 255, 255, 0.4);
+  --text-tertiary: rgba(255, 255, 255, 0.18);
+  --text-inverse: #0b0e14;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  --sidebar-bg: #070a10;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --dropzone-bg: rgba(255, 255, 255, 0.02);
+  --dropzone-border: rgba(255, 255, 255, 0.12);
+  --radial-glow: rgba(59, 130, 246, 0.04);
+  --hover-bg: rgba(255, 255, 255, 0.05);
+  --success-bg: rgba(16, 185, 129, 0.08);
+  --success-border: rgba(16, 185, 129, 0.2);
+  --success-text: #34d399;
+  --danger-bg: rgba(239, 68, 68, 0.08);
+  --danger-border: rgba(239, 68, 68, 0.2);
+  --danger-text: #f87171;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg-primary: #0b0e14;
+    --bg-surface: #11141d;
+    --bg-elevated: #1a1d2a;
+    --text-primary: #e5e7eb;
+    --text-secondary: rgba(255, 255, 255, 0.4);
+    --text-tertiary: rgba(255, 255, 255, 0.18);
+    --text-inverse: #0b0e14;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-subtle: rgba(255, 255, 255, 0.04);
+    --sidebar-bg: #070a10;
+    --sidebar-border: rgba(255, 255, 255, 0.06);
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --dropzone-bg: rgba(255, 255, 255, 0.02);
+    --dropzone-border: rgba(255, 255, 255, 0.12);
+    --radial-glow: rgba(59, 130, 246, 0.04);
+    --hover-bg: rgba(255, 255, 255, 0.05);
+    --success-bg: rgba(16, 185, 129, 0.08);
+    --success-border: rgba(16, 185, 129, 0.2);
+    --success-text: #34d399;
+    --danger-bg: rgba(239, 68, 68, 0.08);
+    --danger-border: rgba(239, 68, 68, 0.2);
+    --danger-text: #f87171;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fade-slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-out-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+html,
+body,
+#root {
+  min-height: 100dvh;
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar-overlay-enter {
+  animation: fade-in 0.2s ease-out forwards;
+}
+.sidebar-drawer-enter {
+  animation: slide-in-left 0.25s ease-out forwards;
+}
+.sidebar-drawer-exit {
+  animation: slide-out-left 0.2s ease-in forwards;
+}
