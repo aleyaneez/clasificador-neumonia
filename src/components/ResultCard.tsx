@@ -6,16 +6,16 @@ interface Props {
 export default function ResultCard({ label, isPneumonia }: Props) {
   const colors = isPneumonia
     ? {
-        bg: "bg-[var(--danger-bg)]",
-        border: "border-[var(--danger-border)]",
-        text: "text-[var(--danger-text)]",
-        icon: "text-[var(--danger-text)]",
+        bg: "bg-danger",
+        border: "border-danger-border",
+        text: "text-danger-foreground",
+        icon: "text-danger-foreground",
       }
     : {
-        bg: "bg-[var(--success-bg)]",
-        border: "border-[var(--success-border)]",
-        text: "text-[var(--success-text)]",
-        icon: "text-[var(--success-text)]",
+        bg: "bg-success",
+        border: "border-success-border",
+        text: "text-success-foreground",
+        icon: "text-success-foreground",
       };
 
   return (
@@ -57,7 +57,7 @@ export default function ResultCard({ label, isPneumonia }: Props) {
           </svg>
         )}
         <div>
-          <p className="text-xs text-[var(--text-tertiary)] font-medium tracking-wide uppercase">
+          <p className="text-xs text-foreground-tertiary font-medium tracking-wide uppercase">
             Resultado
           </p>
           <p className={`text-lg font-semibold ${colors.text}`}>{label}</p>

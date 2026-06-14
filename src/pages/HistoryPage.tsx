@@ -14,7 +14,7 @@ export default function HistoryPage({ history, onDelete, onSelect }: Props) {
         <h1 className="text-xl font-semibold tracking-tight text-[var(--text-primary)]">
           Historial
         </h1>
-        <p className="mt-1 text-sm text-[var(--text-secondary)]">
+        <p className="mt-1 text-sm text-muted">
           Predicciones recientes
         </p>
       </div>

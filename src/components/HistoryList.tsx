@@ -22,13 +22,13 @@ export default function HistoryList({ entries, onDelete, onSelect }: Props) {
   if (entries.length === 0) {
     return (
       <div className="animate-[fade-slide-up_0.4s_ease-out] flex flex-col items-center justify-center py-20 px-6">
-        <div className="w-16 h-16 rounded-2xl bg-[var(--bg-elevated)] flex items-center justify-center mb-4">
-          <svg className="w-8 h-8 text-[var(--text-tertiary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <div className="w-16 h-16 rounded-2xl bg-surface-elevated flex items-center justify-center mb-4">
+          <svg className="w-8 h-8 text-foreground-tertiary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
         </div>
-        <p className="text-sm font-medium text-[var(--text-secondary)]">Sin predicciones</p>
-        <p className="mt-1 text-xs text-[var(--text-tertiary)]">
+        <p className="text-sm font-medium text-foreground-secondary">Sin predicciones</p>
+        <p className="mt-1 text-xs text-foreground-tertiary">
           Las radiografias que analices apareceran aqui
         </p>
       </div>
@@ -40,34 +40,34 @@ export default function HistoryList({ entries, onDelete, onSelect }: Props) {
       {entries.map((entry) => {
         const isPneumonia = entry.label === 'Neumonia detectada'
         const badgeColor = isPneumonia
-          ? 'bg-[var(--danger-bg)] text-[var(--danger-text)]'
-          : 'bg-[var(--success-bg)] text-[var(--success-text)]'
+          ? 'bg-danger text-danger-foreground'
+          : 'bg-success text-success-foreground'
 
         return (
           <button
             key={entry.id}
             type="button"
             onClick={() => onSelect(entry)}
-            className="flex items-center gap-3 p-3 rounded-xl bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--border-color)] text-left hover:bg-[var(--hover-bg)] transition-all duration-200 group"
+            className="flex items-center gap-3 p-3 rounded-xl bg-glass backdrop-blur-xl border border-border text-left hover:bg-hover transition-all duration-200 group"
           >
             <img
               src={entry.imageUrl}
               alt=""
-              className="w-14 h-14 rounded-lg object-cover shrink-0 bg-[var(--bg-elevated)]"
+              className="w-14 h-14 rounded-lg object-cover shrink-0 bg-surface-elevated"
             />
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
                 <span className={`text-sm font-semibold px-1.5 py-0.5 rounded-md ${badgeColor}`}>
                   {entry.label}
                 </span>
-                <span className="text-sm text-[var(--text-tertiary)] font-mono tabular-nums">
+                <span className="text-sm text-foreground-tertiary font-mono tabular-nums">
                   {Math.round(entry.confidence * 100)}%
                 </span>
               </div>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-sm text-[var(--text-tertiary)]">{timeAgo(entry.timestamp)}</span>
-                <span className="text-sm text-[var(--text-tertiary)]">&middot;</span>
-                <span className="text-sm text-[var(--text-tertiary)] font-mono">{entry.inferenceTime.toFixed(1)}ms</span>
+                <span className="text-sm text-foreground-tertiary">{timeAgo(entry.timestamp)}</span>
+                <span className="text-sm text-foreground-tertiary">&middot;</span>
+                <span className="text-sm text-foreground-tertiary font-mono">{entry.inferenceTime.toFixed(1)}ms</span>
               </div>
             </div>
             <IconButton

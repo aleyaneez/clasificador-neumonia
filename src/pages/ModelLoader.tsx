@@ -31,7 +31,7 @@ export default function ModelLoader({ status, loadPct, error, provider }: Props)
   return (
     <div className="w-full max-w-2xl flex flex-col items-center gap-8 mt-12">
       <div className="text-center">
-        <h1 className="text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
+        <h1 className="text-3xl font-semibold tracking-tight text-foreground">
           NeumonIA
         </h1>
       </div>
@@ -67,10 +67,10 @@ export default function ModelLoader({ status, loadPct, error, provider }: Props)
               d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
             />
           </svg>
-          <p className="text-sm text-[var(--text-secondary)]">
+          <p className="text-sm text-foreground-secondary">
             Error al cargar el modelo
           </p>
-          <p className="text-xs text-[var(--text-tertiary)] max-w-sm">
+          <p className="text-xs text-foreground-tertiary max-w-sm">
             {error}
           </p>
           <GhostButton

@@ -68,7 +68,7 @@ export default function Sidebar({
             d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
           />
         </svg>
-        <span className="text-base font-semibold tracking-tight text-[var(--text-primary)]">
+        <span className="text-base font-semibold tracking-tight text-foreground">
           NeumonIA
         </span>
       </div>
@@ -83,7 +83,7 @@ export default function Sidebar({
             ${
               activeView === "upload" || activeView === "result"
                 ? "bg-accent/10 text-accent"
-                : "text-[var(--text-secondary)] hover:bg-[var(--hover-bg)] hover:text-[var(--text-primary)]"
+                : "text-foreground-secondary hover:bg-hover hover:text-foreground"
             }
           `}
         >
@@ -112,7 +112,7 @@ export default function Sidebar({
             ${
               activeView === "history"
                 ? "bg-accent/10 text-accent"
-                : "text-[var(--text-secondary)] hover:bg-[var(--hover-bg)] hover:text-[var(--text-primary)]"
+                : "text-foreground-secondary hover:bg-hover hover:text-foreground"
             }
           `}
         >
@@ -140,11 +140,11 @@ export default function Sidebar({
 
       <div className="mt-auto px-4 pb-6">
         <div className="flex items-center gap-2 mb-3">
-          <div className="flex-1 h-px bg-[var(--border-subtle)]" />
-          <span className="text-xs font-medium tracking-widest uppercase text-[var(--text-tertiary)]">
+          <div className="flex-1 h-px bg-border-subtle" />
+          <span className="text-xs font-medium tracking-widest uppercase text-foreground-tertiary">
             Ajustes
           </span>
-          <div className="flex-1 h-px bg-[var(--border-subtle)]" />
+          <div className="flex-1 h-px bg-border-subtle" />
         </div>
         <ThemeToggle theme={theme} onChange={onThemeChange} />
       </div>
@@ -157,7 +157,7 @@ export default function Sidebar({
       <IconButton
         size="lg"
         onClick={toggleMobile}
-        className="md:hidden fixed top-4 left-4 z-40 rounded-xl bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--border-color)]"
+        className="md:hidden fixed top-4 left-4 z-40 rounded-xl bg-glass backdrop-blur-xl border border-border"
         aria-label="Abrir menu"
       >
         <svg
@@ -176,7 +176,7 @@ export default function Sidebar({
       </IconButton>
 
       {/* Desktop sidebar */}
-      <aside className="hidden md:flex md:flex-col md:w-60 md:shrink-0 md:fixed md:inset-y-0 md:left-0 md:z-30 bg-[var(--sidebar-bg)] border-r border-[var(--sidebar-border)]">
+      <aside className="hidden md:flex md:flex-col md:w-60 md:shrink-0 md:fixed md:inset-y-0 md:left-0 md:z-30 bg-sidebar border-r border-sidebar-border">
         {sidebarContent}
       </aside>
 
@@ -188,7 +188,7 @@ export default function Sidebar({
             onClick={toggleMobile}
           />
           <aside
-            className={`flex flex-col overflow-hidden absolute inset-y-0 left-0 w-64 bg-[var(--sidebar-bg)] border-r border-[var(--sidebar-border)] shadow-2xl ${closing ? "sidebar-drawer-exit" : "sidebar-drawer-enter"}`}
+            className={`flex flex-col overflow-hidden absolute inset-y-0 left-0 w-64 bg-sidebar border-r border-sidebar-border shadow-2xl ${closing ? "sidebar-drawer-exit" : "sidebar-drawer-enter"}`}
           >
             <div className="flex justify-end px-4 pt-4 shrink-0">
               <IconButton

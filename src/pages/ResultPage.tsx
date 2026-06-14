@@ -15,16 +15,16 @@ export default function ResultPage({ imageUrl, result, onNewImage }: Props) {
 
   const barColor = isPneumonia ? "bg-red-500" : "bg-emerald-500";
   const textColor = isPneumonia
-    ? "text-[var(--danger-text)]"
-    : "text-[var(--success-text)]";
+    ? "text-danger-foreground"
+    : "text-success-foreground";
 
   return (
     <div className="w-full max-w-5xl flex flex-col gap-10">
       <div className="text-center">
-        <h1 className="text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
+        <h1 className="text-3xl font-semibold tracking-tight text-foreground">
           NeumonIA
         </h1>
-        <p className="mt-2 text-sm text-[var(--text-secondary)]">
+        <p className="mt-2 text-sm text-foreground-secondary">
           Clasificación de radiografías de tórax entre normal y neumonía
         </p>
       </div>
@@ -39,14 +39,14 @@ export default function ResultPage({ imageUrl, result, onNewImage }: Props) {
 
           <div className="animate-[fade-slide-up_0.5s_ease-out]">
             <div className="flex justify-between items-baseline mb-2">
-              <span className="text-xs text-[var(--text-tertiary)] font-medium">
+              <span className="text-xs text-foreground-tertiary font-medium">
                 Confianza
               </span>
               <span className={`text-sm font-semibold ${textColor}`}>
                 {percentage}%
               </span>
             </div>
-            <div className="w-full h-2 bg-[var(--bg-elevated)] rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-surface-elevated rounded-full overflow-hidden">
               <div
                 className={`h-full rounded-full ${barColor} transition-all duration-700 ease-out`}
                 style={{ width: `${percentage}%` }}
@@ -56,7 +56,7 @@ export default function ResultPage({ imageUrl, result, onNewImage }: Props) {
 
           <div className="flex items-center gap-2 animate-[fade-slide-up_0.5s_ease-out]">
             <svg
-              className="w-3.5 h-3.5 text-[var(--text-tertiary)]"
+              className="w-3.5 h-3.5 text-foreground-tertiary"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -68,15 +68,15 @@ export default function ResultPage({ imageUrl, result, onNewImage }: Props) {
                 d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
               />
             </svg>
-            <span className="text-xs text-[var(--text-tertiary)]">
+            <span className="text-xs text-foreground-tertiary">
               Tiempo de inferencia:{" "}
-              <span className="text-[var(--text-secondary)] font-mono tabular-nums">
+              <span className="text-foreground-secondary font-mono tabular-nums">
                 {result.inferenceTime.toFixed(1)} ms
               </span>
             </span>
           </div>
 
-          <p className="text-xs text-[var(--text-tertiary)] animate-[fade-slide-up_0.5s_ease-out]">
+          <p className="text-xs text-foreground-tertiary animate-[fade-slide-up_0.5s_ease-out]">
             {isPneumonia
               ? "Se recomienda consultar a un medico"
               : "No se detectaron signos de neumonia"}

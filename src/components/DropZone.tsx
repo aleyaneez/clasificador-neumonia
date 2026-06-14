@@ -61,10 +61,10 @@ export default function DropZone({ onImageSelected }: Props) {
       onClick={handleClick}
       className={`
         relative cursor-pointer rounded-2xl border-2 border-dashed p-12
-        transition-all duration-300 ease-out bg-[var(--dropzone-bg)]
+        transition-all duration-300 ease-out bg-dropzone
         ${isDragging
           ? 'border-accent bg-accent/10 scale-[1.01] shadow-[0_0_24px_rgba(59,130,246,0.2)]'
-          : 'border-[var(--dropzone-border)] hover:border-[var(--text-tertiary)] hover:bg-[var(--hover-bg)]'
+          : 'border-dropzone-border hover:border-foreground-tertiary hover:bg-hover'
         }
       `}
     >
@@ -78,7 +78,7 @@ export default function DropZone({ onImageSelected }: Props) {
 
       <div className="flex flex-col items-center gap-4">
         <svg
-          className={`w-12 h-12 transition-colors duration-300 ${isDragging ? 'text-accent' : 'text-[var(--text-tertiary)]'}`}
+          className={`w-12 h-12 transition-colors duration-300 ${isDragging ? 'text-accent' : 'text-foreground-tertiary'}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -91,12 +91,12 @@ export default function DropZone({ onImageSelected }: Props) {
           />
         </svg>
         <div className="text-center">
-          <p className="text-sm font-medium text-[var(--text-primary)]">
+          <p className="text-sm font-medium text-foreground">
             {isDragging
               ? 'Suelta la imagen aqui'
               : 'Arrastra una radiografia de torax o haz clic'}
           </p>
-          <p className="mt-1 text-xs text-[var(--text-tertiary)]">
+          <p className="mt-1 text-xs text-foreground-tertiary">
             PNG, JPG o DICOM convertido a imagen
           </p>
         </div>

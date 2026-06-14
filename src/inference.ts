@@ -33,9 +33,19 @@ export async function loadModel(
 ): Promise<void> {
   if (session) return;
 
-  onProgress?.(10);
+  onProgress?.(5);
 
   const providers = detectProviderSupport();
+
+  let progress = 5;
+  let loaded = false;
+
+  const interval = setInterval(() => {
+    if (loaded) return;
+    progress += (90 - progress) * 0.08;
+    if (progress > 90) progress = 90;
+    onProgress?.(Math.round(progress));
+  }, 250);
 
   for (const ep of providers) {
     try {
@@ -49,6 +59,9 @@ export async function loadModel(
       // fall back to the next execution provider
     }
   }
+
+  loaded = true;
+  clearInterval(interval);
 
   if (!session) {
     throw new Error("No compatible execution provider found");

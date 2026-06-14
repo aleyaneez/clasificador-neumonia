@@ -26,8 +26,8 @@ function SampleBadge({ label }: { label: Sample['label'] }) {
     <span
       className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide border ${
         isNormal
-          ? 'bg-[var(--success-bg)] text-[var(--success-text)] border-[var(--success-border)]'
-          : 'bg-[var(--danger-bg)] text-[var(--danger-text)] border-[var(--danger-border)]'
+          ? 'bg-success text-success-foreground border-success-border'
+          : 'bg-danger text-danger-foreground border-danger-border'
       }`}
     >
       {isNormal ? (
@@ -54,12 +54,16 @@ export default function SampleGallery({ onImageSelected }: Props) {
   return (
     <div className="w-full animate-[fade-slide-up_0.4s_ease-out]">
       <div className="flex items-center gap-3 mb-4">
-        <div className="flex-1 h-px bg-[var(--border-subtle)]" />
-        <span className="text-xs font-medium tracking-widest uppercase text-[var(--text-tertiary)]">
+        <div className="flex-1 h-px bg-border-subtle" />
+        <span className="text-xs font-medium tracking-widest uppercase text-foreground-tertiary">
           Imagenes de muestra
         </span>
-        <div className="flex-1 h-px bg-[var(--border-subtle)]" />
+        <div className="flex-1 h-px bg-border-subtle" />
       </div>
+      <p className="text-xs text-muted-foreground text-center mb-4 leading-relaxed">
+        Estas imágenes no se utilizaron durante el entrenamiento ni la validación del modelo.
+        Son casos reservados exclusivamente para pruebas.
+      </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {SAMPLES.map((sample, index) => (
@@ -67,9 +71,12 @@ export default function SampleGallery({ onImageSelected }: Props) {
             key={sample.src}
             type="button"
             onClick={() => handleClick(sample.src)}
-            className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] text-left transition-all duration-200 hover:border-accent/40 hover:ring-2 hover:ring-accent/20 focus:outline-none focus:ring-2 focus:ring-accent/40"
+            className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface text-left transition-all duration-200 hover:border-accent/40 hover:ring-2 hover:ring-accent/20 focus:outline-none focus:ring-2 focus:ring-accent/40"
           >
-            <div className="aspect-square overflow-hidden bg-[var(--bg-elevated)]">
+            <div className="relative aspect-square overflow-hidden bg-surface-elevated">
+              <div className="absolute top-1.5 right-1.5 z-10 rounded-md bg-black/50 backdrop-blur-sm border border-white/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white">
+                Prueba
+              </div>
               <img
                 src={sample.src}
                 alt={`Radiografia de muestra ${index + 1}`}

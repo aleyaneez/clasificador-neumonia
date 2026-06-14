@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
     <footer className="mt-auto pt-16 flex flex-col items-center gap-1">
-      <p className="text-center text-xs text-[var(--text-tertiary)]">
+      <p className="text-center text-xs text-foreground-tertiary">
         Solo para fines demostrativos. No sustituye diagnóstico médico
         profesional.
       </p>
-      <p className="text-center text-xs text-[var(--text-tertiary)]">
+      <p className="text-center text-xs text-foreground-tertiary">
         Desarrollado por{" "}
         <a
           href="https://alejandroyanez.dev"

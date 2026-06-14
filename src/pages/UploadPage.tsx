@@ -52,10 +52,10 @@ export default function UploadPage({ onAnalysisComplete }: Props) {
   return (
     <div className="w-full max-w-3xl flex flex-col items-center gap-8">
       <div className="text-center">
-        <h1 className="text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
+        <h1 className="text-3xl font-semibold tracking-tight text-foreground">
           NeumonIA
         </h1>
-        <p className="mt-2 text-sm text-[var(--text-secondary)]">
+        <p className="mt-2 text-sm text-foreground-secondary">
           Clasificación de radiografías de tórax entre normal y neumonía
         </p>
       </div>
@@ -113,10 +113,10 @@ export default function UploadPage({ onAnalysisComplete }: Props) {
               d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
             />
           </svg>
-          <p className="text-sm text-[var(--text-secondary)]">
+          <p className="text-sm text-foreground-secondary">
             Error al analizar la imagen
           </p>
-          <p className="text-xs text-[var(--text-tertiary)] max-w-sm">
+          <p className="text-xs text-foreground-tertiary max-w-sm">
             {analyzeError}
           </p>
           <div className="flex items-center gap-4">

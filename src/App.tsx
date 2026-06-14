@@ -44,7 +44,7 @@ function App() {
   }, []);
 
   return (
-    <div className="flex min-h-dvh bg-[var(--bg-primary)]">
+    <div className="flex min-h-dvh bg-background">
       {isReady ? (
         <Sidebar
           activeView={activeView}

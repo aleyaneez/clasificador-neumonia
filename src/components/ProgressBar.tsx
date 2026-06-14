@@ -8,7 +8,7 @@ export default function ProgressBar({ label = 'Cargando modelo...', progress }: 
 
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-xs mx-auto">
-      <div className="relative w-full h-1.5 bg-[var(--bg-elevated)] rounded-full overflow-hidden">
+      <div className="relative w-full h-1.5 bg-surface-elevated rounded-full overflow-hidden">
         {isIndeterminate ? (
           <div
             className="absolute inset-0 rounded-full animate-[shimmer_1.5s_ease-in-out_infinite]"
@@ -24,7 +24,7 @@ export default function ProgressBar({ label = 'Cargando modelo...', progress }: 
           />
         )}
       </div>
-      <p className="text-xs text-[var(--text-tertiary)] font-medium tracking-wide uppercase">
+      <p className="text-xs text-foreground-tertiary font-medium tracking-wide uppercase">
         {isIndeterminate ? label : `${label} ${Math.round(progress)}%`}
       </p>
     </div>

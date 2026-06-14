@@ -95,7 +95,7 @@ export function IconButton({
       disabled={disabled}
       className={`
         inline-flex items-center justify-center rounded-lg shrink-0
-        text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--hover-bg)]
+        text-foreground-tertiary hover:text-foreground hover:bg-hover
         transition-colors duration-200
         disabled:opacity-30 disabled:cursor-not-allowed
         ${iconSizeClasses[size]}
@@ -133,7 +133,7 @@ export function GhostButton({
         ${
           active
             ? "text-accent"
-            : "text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--hover-bg)]"
+            : "text-foreground-tertiary hover:text-foreground hover:bg-hover"
         }
         ${sizeClasses[size]}
         ${className}
