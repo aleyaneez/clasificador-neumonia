@@ -10,6 +10,7 @@ import UploadPage from "./pages/UploadPage";
 import ResultPage from "./pages/ResultPage";
 import HistoryPage from "./pages/HistoryPage";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const { theme, setTheme } = useTheme();
@@ -91,6 +92,7 @@ function App() {
         <Footer />
       </main>
       <SpeedInsights />
+      <Analytics />
     </div>
   );
 }
