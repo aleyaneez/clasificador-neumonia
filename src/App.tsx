@@ -9,6 +9,7 @@ import ModelLoader from "./pages/ModelLoader";
 import UploadPage from "./pages/UploadPage";
 import ResultPage from "./pages/ResultPage";
 import HistoryPage from "./pages/HistoryPage";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const { theme, setTheme } = useTheme();
@@ -89,6 +90,7 @@ function App() {
 
         <Footer />
       </main>
+      <SpeedInsights />
     </div>
   );
 }
